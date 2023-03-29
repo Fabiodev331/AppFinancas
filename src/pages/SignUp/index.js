@@ -1,5 +1,5 @@
-import React from 'react';
-import { Platform } from 'react-native';
+import React, { useContext } from 'react';
+import { Alert, Platform } from 'react-native';
 
 import { 
   Background,
@@ -10,8 +10,15 @@ import {
   SubimitText, 
 } from '../SigniIn/styles';
 
-export default function SignIn() {
+import { AuthContext } from '../../contexts/auth';
 
+export default function SignUp() {
+
+  const { user } = useContext(AuthContext);
+
+  function handleSignUp(){
+    console.log(user.nome)
+  }
   return(
     <Background>
       <Container
@@ -37,7 +44,7 @@ export default function SignIn() {
           />
         </AreaInput> 
 
-        <SubmitButton activeOpacity={0.8} >
+        <SubmitButton activeOpacity={0.8} onPress={handleSignUp} >
           <SubimitText>Cadastrar</SubimitText>
         </SubmitButton>      
 
