@@ -9,6 +9,7 @@ import api from "../../services/api";
 import { format } from "date-fns";
 
 import { useIsFocused } from "@react-navigation/native";
+import BalanceItem from "../../components/BalanceItem";
 
 export default function Home(){
     const isFocused = useIsFocused();
@@ -51,7 +52,7 @@ export default function Home(){
                 horizontal={true}
                 showHorizontalScrollIndicator={false}
                 keyExtractor={item => item.tag }
-               
+                renderItem={ ({ item }) => ( <BalanceItem  data={item} /> ) }
             />
         </Background>
     );
