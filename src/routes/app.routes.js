@@ -13,14 +13,14 @@ function AppRoutes(){
             headerShown: false,
 
             drawerStyle:{
-                backgroundColor: '#FFF',
+                backgroundColor: '#e6edff',
                 paddingTop: 20,
             },
 
             drawerActiveBackgroundColor: '#4e009b',
             drawerActiveTintColor: '#FFF',
 
-            drawerInactiveBackgroundColor: '#F0F2FF',
+            drawerInactiveBackgroundColor: '#FFF',
             drawerInactiveTintColor: '#121212'
         }}
         >
