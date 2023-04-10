@@ -1,7 +1,5 @@
 import React, {useContext, useState, useEffect} from "react";
-import { Text, View, Button, TouchableOpacity } from "react-native";
-
-import { AuthContext } from "../../contexts/auth";
+import { TouchableOpacity } from "react-native";
 
 import Header from "../../components/Header";
 import { Background, ListBalance, Area, Title, List } from "./styles";
@@ -18,7 +16,7 @@ export default function Home(){
     const isFocused = useIsFocused();
     const [listBalance, setListBalance] = useState([]);
     const [dateMoviments, setDateMoviments] = useState(new Date());
-    const [movimentes, setMoviments] = useState([]);
+    const [movements, setMovements] = useState([]);
 
     useEffect(()=> {
         let isActive = true;
@@ -39,7 +37,7 @@ export default function Home(){
             })
 
             if(isActive){
-                setMoviments(receives.data);
+                setMovements(receives.data);
                 setListBalance(balance.data);
             }
         }
@@ -48,7 +46,23 @@ export default function Home(){
 
         return () => isActive = false;
 
-    }, [isFocused])
+    }, [isFocused, dateMoviments])
+
+    async function handleDelete(id){
+        try{
+            await api.delete('/receives/delete', {
+                params:{
+                    item_id: id
+                }
+            })
+
+            setDateMoviments(new Date())
+
+        }catch(err){
+            console.log(err);
+        }
+
+    }
 
     
     return(
@@ -73,9 +87,9 @@ export default function Home(){
             </Area>
 
             <List
-                data={[movimentes]}
+                data={movements}
                 keyExtractor={ item => item.id}
-                renderItem={ ({item}) => <HistoricoList data={item} /> }
+                renderItem={ ({item}) => <HistoricoList data={item} deleteItem={handleDelete} /> }
                 showsVerticalScrollOndicator={false}
                 contentContainerStyles={{ paddingBottom: 20 }}
             />

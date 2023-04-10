@@ -30,7 +30,7 @@ margin-bottom: 15px;
 `;
 
 export const SubmitButton =styled.TouchableOpacity`
-background-color: #4e009b;
+background-color: #3b3bdf;
 width: 90%;
 height: 45px;
 border-radius: 8px;
