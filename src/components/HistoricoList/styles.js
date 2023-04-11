@@ -13,6 +13,7 @@ export const TipoText = styled.Text`
 color: #fff;
 font-size: 16px;
 font-style: italic;
+padding-left: 5px;
 `;
 
 export const Tipo = styled.View`
