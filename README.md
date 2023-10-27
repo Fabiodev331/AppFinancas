@@ -1,5 +1,5 @@
 # AppFinancas
-App de financas pessoais
+Aplicativo de gerenciamento financeiro, com lançamento de receitas, despesas e saldo.
 <div>
   
   ## Dashboard
